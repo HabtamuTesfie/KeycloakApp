@@ -1,0 +1,59 @@
+<div>
+  <h2 id="page-heading" data-cy="PaygovHeading" align="center">
+    <span><strong>PayGov</strong></span>
+  </h2>
+  <br />
+
+  <div class="d-flex justify-content-center" *ngIf="loading" align="center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only" id="loading"></span>
+    </div>
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;
+    <h4>
+      <p id="redirect" align="center">Redirecting.... {{ timeLeft }} seconds</p>
+    </h4>
+  </div>
+
+  <br />
+  <h3><strong>You submitted the following</strong></h3>
+  <br />
+  <form name="form" role="form">
+    <div>
+      <b><span>Cik : </span></b>
+      <span>{{ data.cik }}</span>
+    </div>
+    <br />
+    <div>
+      <b><span>Ccc : </span></b>
+      <span>{{ data.ccc }}</span>
+    </div>
+    <br />
+    <div>
+      <b><span>Payment Amount : </span></b>
+      <span>{{ data.paymentAmount }}</span>
+    </div>
+    <br />
+    <div>
+      <b><span>Name : </span></b>
+      <span>{{ data.name }}</span>
+    </div>
+    <br />
+    <div>
+      <b><span>Email : </span></b>
+      <span>{{ data.email }}</span>
+    </div>
+    <br />
+    <div>
+      <b><span>Phone : </span></b>
+      <span>{{ data.phone }}</span>
+    </div>
+    <br />
+
+    <div>
+      <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-primary" (click)="previousState()">
+        &nbsp;&nbsp;&nbsp;&nbsp; <fa-icon icon="arrow-left"></fa-icon>&nbsp;&nbsp;
+        <span>Go to back</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </button><br><br><br>
+    </div>
+  </form>
+</div>

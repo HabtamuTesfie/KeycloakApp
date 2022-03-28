@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-pay-heading" data-cy="PayCreateUpdateHeading">Create or edit a Pay</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_cik">Cik</label>
+          <input type="text" class="form-control" name="cik" id="field_cik" data-cy="cik" formControlName="cik" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_ccc">Ccc</label>
+          <input type="text" class="form-control" name="ccc" id="field_ccc" data-cy="ccc" formControlName="ccc" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_paymentAmount">Payment Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            name="paymentAmount"
+            id="field_paymentAmount"
+            data-cy="paymentAmount"
+            formControlName="paymentAmount"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_approval">Approval</label>
+          <input type="text" class="form-control" name="approval" id="field_approval" data-cy="approval" formControlName="approval" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

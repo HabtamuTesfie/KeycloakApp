@@ -1,0 +1,15 @@
+DROP DATABASE IF  EXISTS payment;
+CREATE DATABASE payment;
+\c payment;
+CREATE TABLE IF NOT EXISTS payment
+(
+id INT,
+cik VARCHAR(250),
+ccc VARCHAR(250),
+paymentAmount DOUBLE PRECISION,
+name VARCHAR(250),
+email VARCHAR(250),
+phone VARCHAR(250),
+approval VARCHAR(250),
+PRIMARY KEY (id)
+);

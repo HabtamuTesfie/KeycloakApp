@@ -1,0 +1,16 @@
+<div class="row">
+ <div class="col-md-9">
+    <h1 class="display-4"><span><b>Welcome to paygov application</b></span> </h1>
+
+    <div [ngSwitch]="account !== null">
+      <div class="alert alert-success" *ngSwitchCase="true">
+        <jhi-pay-gov></jhi-pay-gov>
+      </div>
+<br><br>
+      <div  *ngSwitchCase="false" id="login">
+        <button type="button" class="btn btn-primary" (click)="login()" >Login</button>
+        </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

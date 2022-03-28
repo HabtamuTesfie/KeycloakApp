@@ -1,0 +1,80 @@
+<div>
+  <h2 id="page-heading" data-cy="PayHeading">
+    <span>Pays</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-pay"
+        [routerLink]="['/pay/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Pay </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="pays?.length === 0">
+    <span>No pays found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="pays && pays.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>Cik</span></th>
+          <th scope="col"><span>Ccc</span></th>
+          <th scope="col"><span>Payment Amount</span></th>
+          <th scope="col"><span>Name</span></th>
+          <th scope="col"><span>Email</span></th>
+          <th scope="col"><span>Phone</span></th>
+          <th scope="col"><span>Approval</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pay of pays; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/pay', pay.id, 'view']">{{ pay.id }}</a>
+          </td>
+          <td>{{ pay.cik }}</td>
+          <td>{{ pay.ccc }}</td>
+          <td>{{ pay.paymentAmount }}</td>
+          <td>{{ pay.name }}</td>
+          <td>{{ pay.email }}</td>
+          <td>{{ pay.phone }}</td>
+          <td>{{ pay.approval }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/pay', pay.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/pay', pay.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(pay)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

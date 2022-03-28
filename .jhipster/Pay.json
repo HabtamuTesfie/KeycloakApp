@@ -1,0 +1,38 @@
+{
+  "fields": [
+    {
+      "fieldName": "cik",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ccc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "approval",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "service": "no",
+  "readOnly": false,
+  "pagination": "no",
+  "name": "Pay",
+  "changelogDate": "20220324155647"
+}

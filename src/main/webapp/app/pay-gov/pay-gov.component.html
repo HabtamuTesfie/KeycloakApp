@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+      <form name="form" role="form" novalidate [formGroup]="form">
+        <div id="note">
+          <strong>Pay.gov</strong> - Agency Information. Launched in October 2000,<strong>Pay.gov</strong>  is a secure <br>
+           government-wide collection portal, developed to meet the U.S. Treasury's commitment<br>
+           to process collections electronically using internet technologies<br><br>
+        <h2 id="jhi-pay-heading" data-cy="PayCreateUpdateHeading"><strong>Add Payment</strong></h2>
+      </div>
+        <div>
+          <jhi-alert-error></jhi-alert-error>
+  
+          <div class="form-group">
+            <label class="form-control-label" for="field_cik">Cik</label>
+            <input type="text" class="form-control" name="cik" id="field_cik" data-cy="cik" formControlName="cik" />
+          </div>
+  
+          <div class="form-group">
+            <label class="form-control-label" for="field_ccc">Ccc</label>
+            <input type="text" class="form-control" name="ccc" id="field_ccc" data-cy="ccc" formControlName="ccc" />
+          </div>
+  
+          <div class="form-group">
+            <label class="form-control-label" for="field_paymentAmount">Payment Amount</label>
+            <input
+              type="number"
+              class="form-control"
+              name="paymentAmount"
+              id="field_paymentAmount"
+              data-cy="paymentAmount"
+              formControlName="paymentAmount"
+            />
+          </div>
+  
+          <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          </div>
+  
+          <div class="form-group">
+            <label class="form-control-label" for="field_email">Email</label>
+            <input type="email" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" email="true"/>
+          </div>
+  
+          <div class="form-group">
+            <label class="form-control-label" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+          </div>
+        </div>
+  
+        <div id="btn">
+          <button type="reset" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-primary" (click)="previousState()">
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+          </button>
+  
+          <button type="button" [disabled]="form.invalid" (click) = "storeData()"
+                  id="nxt" routerLink="/pg-confirmation" class="btn btn-primary">
+            &nbsp;&nbsp;&nbsp;<span>Next</span>&nbsp;&nbsp;&nbsp;
+          </button>
+          <br><br><br><br>
+        </div>
+      </form>
+    </div>
+  </div>
