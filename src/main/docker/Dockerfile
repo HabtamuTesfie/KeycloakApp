@@ -2,7 +2,8 @@ FROM openjdk:11-jre-slim-stretch
 
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
     JHIPSTER_SLEEP=0 \
-    JAVA_OPTS=""
+    JAVA_OPTS="" \
+    SPRING_PROFILES_ACTIVE=prod
 
 RUN adduser -D -S /bin/sh jhipster
 WORKDIR home/jhipster
